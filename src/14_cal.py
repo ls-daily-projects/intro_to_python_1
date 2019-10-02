@@ -22,3 +22,21 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+
+def parse(args):
+    current_date = datetime.now()
+    month = current_date.month
+    year = current_date.year
+
+    if(len(args) >= 2):
+        month = int(args[1])
+
+    if(len(args) >= 3):
+        year = int(args[2])
+
+    return (month, year)
+
+
+month, year = parse(sys.argv)
+print(calendar.month(year, month))
